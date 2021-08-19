@@ -43,7 +43,7 @@ public class RxtxClient {
                 .setDatabits(RxtxChannelConfig.Databits.DATABITS_8)
                 .setParitybit(RxtxChannelConfig.Paritybit.NONE)
                 .setStopbits(RxtxChannelConfig.Stopbits.STOPBITS_1);
-        ChannelFuture  future = bootstrap.connect(new RxtxDeviceAddress("COM3")).sync();
+        ChannelFuture future = bootstrap.connect(new RxtxDeviceAddress("COM3")).sync();
         future.channel().closeFuture().sync();
     }
 
@@ -52,7 +52,7 @@ public class RxtxClient {
             buildRxtxClient();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             group.shutdownGracefully();
         }
     }
